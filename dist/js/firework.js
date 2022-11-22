@@ -1,10 +1,12 @@
-(function () {
-  var requestAnimationFrame = window.requestAnimationFrame ||
-    window.mozRequestAnimationFrame ||
-    window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-  window.requestAnimationFrame = requestAnimationFrame;
-})();
 
+window.onload = () => {
+  (function () {
+    var requestAnimationFrame = window.requestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    window.requestAnimationFrame = requestAnimationFrame;
+  })();
+}
 
 const canvas = document.getElementById("canvas"),
   ctx = canvas.getContext("2d");
@@ -25,9 +27,6 @@ let width = 0,
 canvas.width = width;
 canvas.height = height;
 
-/*
- * Controls the emitter
- */
 function Emitter() {
   this.reset();
 }
@@ -190,7 +189,7 @@ function render(currentTime) {
   ctx.putImageData(imgData, 0, 0);
 
 
-  if (currentTime > 10000) {
+  if (currentTime > 60000) {
     cancelAnimationFrame(requestId);
   }
 
